@@ -75,6 +75,21 @@
 | **Detail Invoice** | `/admin/invoice/{id}` | `app/Views/admin/invoice/detail.php` | Rincian item pesanan, data pengiriman, form ubah status pembayaran manual, serta tombol **Cetak Struk**. |
 | **Struk Pembayaran** | `/admin/invoice/struk/{id}` | `app/Views/admin/invoice/receipt.php` | Tampilan struk bergaya thermal (*monospace*) siap cetak (`window.print()`) dengan CSS `@media print` yang menyembunyikan tombol navigasi saat dicetak. |
 
+### 4. Galeri Tampilan Website
+
+| Halaman | Preview |
+| :--- | :---: |
+| **Beranda & Hero Banner** | ![Beranda Hero](docs/screenshots/01-beranda-hero.jpg) |
+| **Katalog Menu & Filter Kategori** | ![Katalog Menu](docs/screenshots/02-katalog-menu.jpg) |
+| **Halaman Login (Split-Screen & Keamanan)** | ![Halaman Login](docs/screenshots/03-login.jpg) |
+| **Dashboard Admin & Grafik Pemasukan** | ![Dashboard Admin](docs/screenshots/04-admin-dashboard.png) |
+| **Tambah ke Keranjang & Floating Cart Bar** | ![Floating Cart Bar](docs/screenshots/05-floating-cart.jpg) |
+| **Checkout & Pemilihan Metode Pembayaran** | ![Checkout](docs/screenshots/06-checkout.png) |
+| **Invoice Menunggu Pembayaran** | ![Invoice Pending](docs/screenshots/07-invoice-pending.png) |
+| **Popup Pembayaran Online (QRIS / VA / e-Wallet)** | ![Popup Pembayaran](docs/screenshots/08-midtrans-snap.jpg) |
+| **Status Pembayaran Lunas (Otomatis Tersinkron)** | ![Invoice Lunas](docs/screenshots/09-invoice-lunas.png) |
+| **Riwayat Pesanan Saya** | ![Riwayat Pesanan](docs/screenshots/10-riwayat-pesanan.png) |
+
 ---
 
 ## Persyaratan Sistem
