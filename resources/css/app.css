@@ -1,0 +1,259 @@
+@import "tailwindcss";
+@source "../../app/Views/**/*.php";
+
+@theme {
+  --font-serif: "Playfair Display", Georgia, serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-cream: #FAF7F2;
+  --color-espresso: #2C1810;
+  --color-roast: #4A2C20;
+  --color-caramel: #C86D2D;
+  --color-caramel-dark: #A8551E;
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    background-color: #FAF7F2;
+    color: #2C1810;
+  }
+}
+
+/* Smooth Page Transition */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-shell {
+  animation: pageEnter 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transition: opacity 0.25s cubic-bezier(0.4, 0, 0.2, 1), transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-shell.is-leaving {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+/* Hero Distinct Smooth Animations */
+@keyframes heroBgZoom {
+  from {
+    opacity: 0;
+    transform: scale(1.08);
+  }
+  to {
+    opacity: 0.48;
+    transform: scale(1);
+  }
+}
+
+@keyframes heroBadgeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-16px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroTitleIn {
+  from {
+    opacity: 0;
+    transform: translateY(28px) scale(0.97);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes heroDescIn {
+  from {
+    opacity: 0;
+    transform: translateX(-24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroBtnPrimaryIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px) scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes heroBtnSecondaryIn {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes heroBadgeLoop {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+@keyframes heroTitleLoop {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-4px) scale(1.012); }
+}
+
+@keyframes heroDescLoop {
+  0%, 100% { transform: translateX(0); opacity: 1; }
+  50% { transform: translateX(6px); opacity: 0.92; }
+}
+
+@keyframes heroBtnPrimaryLoop {
+  0%, 100% { transform: translateY(0); box-shadow: 0 10px 25px -5px rgba(200, 109, 45, 0.35); }
+  50% { transform: translateY(-4px); box-shadow: 0 16px 32px -6px rgba(200, 109, 45, 0.55); }
+}
+
+@keyframes heroBtnSecondaryLoop {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+.hero-bg-zoom {
+  animation: heroBgZoom 1.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-badge {
+  opacity: 0;
+  animation:
+    heroBadgeIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.08s forwards,
+    heroBadgeLoop 3.6s ease-in-out 0.8s infinite;
+}
+
+.hero-title {
+  opacity: 0;
+  animation:
+    heroTitleIn 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards,
+    heroTitleLoop 4.4s ease-in-out 1.05s infinite;
+}
+
+.hero-desc {
+  opacity: 0;
+  animation:
+    heroDescIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.36s forwards,
+    heroDescLoop 5s ease-in-out 1.16s infinite;
+}
+
+.hero-btn-primary {
+  opacity: 0;
+  animation:
+    heroBtnPrimaryIn 0.75s cubic-bezier(0.34, 1.56, 0.64, 1) 0.5s forwards,
+    heroBtnPrimaryLoop 3.2s ease-in-out 1.25s infinite;
+}
+
+.hero-btn-secondary {
+  opacity: 0;
+  animation:
+    heroBtnSecondaryIn 0.75s cubic-bezier(0.22, 1, 0.36, 1) 0.62s forwards,
+    heroBtnSecondaryLoop 3.8s ease-in-out 1.37s infinite;
+}
+
+/* Auth Form Staggered Entrance */
+@keyframes authFieldIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-stagger {
+  opacity: 0;
+  animation: authFieldIn 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.auth-delay-1 { animation-delay: 0.06s; }
+.auth-delay-2 { animation-delay: 0.14s; }
+.auth-delay-3 { animation-delay: 0.22s; }
+.auth-delay-4 { animation-delay: 0.30s; }
+.auth-delay-5 { animation-delay: 0.38s; }
+.auth-delay-6 { animation-delay: 0.46s; }
+
+/* Repeat & Reset Scroll Reveal */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(26px) scale(0.98);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Smooth Button Polish */
+.btn-smooth {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  transition:
+    transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+    background-color 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn-smooth:hover {
+  transform: translateY(-2px);
+}
+
+.btn-smooth:active {
+  transform: translateY(0) scale(0.97);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page-shell,
+  .hero-bg-zoom,
+  .hero-badge,
+  .hero-title,
+  .hero-desc,
+  .hero-btn-primary,
+  .hero-btn-secondary,
+  .auth-stagger,
+  .reveal-on-scroll,
+  .btn-smooth {
+    animation: none !important;
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
